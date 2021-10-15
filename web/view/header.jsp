@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/font-awesome.css">
+        <link rel="stylesheet" href="../style/style_home.css">
         <title>JSP Page</title>
     </head>
     <body>
