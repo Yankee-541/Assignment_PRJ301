@@ -12,10 +12,27 @@ import java.util.ArrayList;
  * @author Tebellum
  */
 public class account {
-    private int user_id;
-    private String user_name,password,display_name,phone,email;
+
+    private int user_id, isSell, isAdmin;
+    private String user_name, password, display_name, phone, email;
     private ArrayList<feedback> feedback;
     private favorite favorite;
+
+    public int getIsSell() {
+        return isSell;
+    }
+
+    public void setIsSell(int isSell) {
+        this.isSell = isSell;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 
     public ArrayList<feedback> getFeedback() {
         return feedback;
@@ -32,7 +49,6 @@ public class account {
     public void setFavorite(favorite favorite) {
         this.favorite = favorite;
     }
-    
 
     public int getUser_id() {
         return user_id;
@@ -81,8 +97,5 @@ public class account {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
-    
-    
+
 }
