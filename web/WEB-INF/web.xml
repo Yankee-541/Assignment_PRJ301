@@ -4,9 +4,25 @@
         <servlet-name>author_controller</servlet-name>
         <servlet-class>controller.author_controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Category_controller</servlet-name>
+        <servlet-class>controller.Category_controller</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>homeController</servlet-name>
+        <servlet-class>controller.homeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>author_controller</servlet-name>
         <url-pattern>/library/author</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Category_controller</servlet-name>
+        <url-pattern>/library/category</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>homeController</servlet-name>
+        <url-pattern>/library/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

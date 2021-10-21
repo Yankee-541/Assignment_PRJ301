@@ -18,18 +18,9 @@ ul li{
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
     box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    /*box-shadow: #337ab7;*/
 }
-.content_page .title_page {
-    padding: 10px 15px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
-    font-size: 16px;
-    font-weight: 400;
-}
+
 .collapse ul li{
     margin: 0 30px;
 }
@@ -126,4 +117,75 @@ padding:15px;
 .hcenter-child-search{
     float:right;
     margin-left: 30px;
+}
+
+
+.content_page .title_page {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    font-size: 16px;
+    font-weight: 400;
+}
+.pd-lr-20 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.mg-b-30 {
+    margin-bottom: 30px;
+}
+.pd-15 {
+    padding: 15px;
+}
+.item_folder_sidebar a {
+    color: #337ab7;
+    display: block;
+    padding: 5px 15px;
+    font-size: 12px;
+}
+.fb_iframe_widget {
+    display: inline-block;
+    position: relative;
+}
+._8f1i {
+    background-color: rgba(9, 30, 66);
+    border-radius: inherit;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.main_menu {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#footer {
+    overflow: hidden;
+    margin: 20px 0 0px 0;
+    clear: both;
+    background: #DDDDDD;
+    border-top: 2px solid #e89126;
+    padding: 10px 0 10px 0;
+}
+.wrapper {
+    width: 1200px;
+    margin: auto;
+    clear: both;
+}
+#footer .content-ft table {
+    width: 100% !important;
+}
+.footer_tag {
+        text-align: center;
+
+    border-top: 0.5px solid #f2f2f2;
+    border-bottom: 0.5px solid #f2f2f2;
+    padding: 8px 0 6px 0;
 }

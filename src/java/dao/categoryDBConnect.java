@@ -20,7 +20,6 @@ import model.category_book;
 public class categoryDBConnect extends DBConnect {
 
     public ArrayList<category_book> get_cateBook() {
-
         ArrayList<category_book> cate = new ArrayList<>();
         try {
             String sql = "SELECT [cate_id]\n"
