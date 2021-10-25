@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class author {
 
     private int author_id;
-    private String name, address, story;
+    private String name, address;
     private Date dob;
     private ArrayList<book> books;
     private favorite favor;
@@ -58,14 +58,6 @@ public class author {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getStory() {
-        return story;
-    }
-
-    public void setStory(String story) {
-        this.story = story;
     }
 
     public Date getDob() {

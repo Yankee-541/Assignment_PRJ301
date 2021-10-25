@@ -8,9 +8,13 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.account;
+import model.author;
+import model.book;
+import model.category_book;
 
 /**
  *
@@ -18,6 +22,87 @@ import model.account;
  */
 public class libraryConnect extends DBConnect {
 
+    public void updateBook(book b) {
+        try {
+            connection.setAutoCommit(false);
+            String sql = "UPDATE [Book]\n"
+                    + "   SET [book_name] = ?\n"
+                    + "      ,[description] = ?\n"
+                    + "      ,[short_des] = ?\n"
+                    + "      ,[author_id] = ?\n"
+                    + "      ,[categoryId] = ?\n"
+                    + " WHERE book_id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, b.getBook_name());
+            ps.setString(2, b.getDescription());
+            ps.setString(3, b.getShort_des());
+            ps.setInt(4, b.getAuthor().getAuthor_id());
+            ps.setInt(5, b.getCategory().getCategory_id());
+            ps.executeUpdate();//lấy giá trị từ SQL
+            
+            String delete_book = "DELETE FROM [Book]\n"
+                    + "      WHERE book_id =?";
+            PreparedStatement ps_delete = connection.prepareStatement(delete_book);
+            ps_delete.setInt(1, b.getBook_id());
+            ps_delete.executeUpdate();
+
+//            for (Object object : b.get) {
+//                
+//            }
+            
+            connection.commit();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+
+    }
+
+    public ArrayList<book> getBooks() {
+        ArrayList<book> books = new ArrayList<>();
+        String sql = "select book_id,book_name,[description],short_des,a.author_id,a.author_name,"
+                + "c.cate_id,c.categoryName from book b \n"
+                + "inner join author a on b.author_id = a.author_id\n"
+                + "inner join categoryBooks c on b.categoryId = c.cate_id";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                book b = new book();
+                b.setBook_id(rs.getInt(1));
+                b.setBook_name(rs.getString(2));
+                b.setDescription(rs.getString(3));
+                b.setShort_des(rs.getString(4));
+
+                author a = new author();
+                a.setAuthor_id(rs.getInt(5));
+                a.setName(rs.getString(6));
+                b.setAuthor(a);
+
+                category_book c = new category_book();
+                c.setCategory_id(rs.getInt(7));
+                c.setCategory_name(rs.getString(7));
+                b.setCategory(c);
+
+                books.add(b);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return books;
+    }
+
+//    public static void main(String[] args) {
+//        libraryConnect lib = new libraryConnect();
+//        for (book b : lib.getBooks()) {
+//            System.out.println(b.getBook_name());
+//        }
+//    }
     public account getAcc(String user, String pass) {
         try {
             String sql = "select * from account where username = ? and [password] = ? ";
@@ -43,6 +128,75 @@ public class libraryConnect extends DBConnect {
             Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+
+    }
+
+    public ArrayList<author> getAuthor() {
+        ArrayList<author> listAuthor = new ArrayList<>();
+        String sql = "select * from author";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                author a = new author();
+                a.setAuthor_id(rs.getInt(1));
+                a.setName(rs.getString(2));
+                listAuthor.add(a);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listAuthor;
+    }
+//    public static void main(String[] args) {
+//        libraryConnect l = new libraryConnect();
+//        for (author a : l.getAuthor()) {
+//            System.out.println(a.getName());
+//        }
+//    }
+
+    public ArrayList<category_book> getCate() {
+        ArrayList<category_book> cates = new ArrayList<>();
+        String sql = "select * from categoryBooks";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                category_book cate = new category_book();
+                cate.setCategory_id(rs.getInt(1));
+                cate.setCategory_name(rs.getString(2));
+                cates.add(cate);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cates;
+    }
+
+    public void insert(book b) {
+        try {
+            String sql = "INSERT INTO [Book]\n"
+                    + "           ([book_name]\n"
+                    + "           ,[description]\n"
+                    + "           ,[short_des]\n"
+                    + "           ,[author_id]\n"
+                    + "           ,[categoryId])\n"
+                    + "         VALUES\n"
+                    + "           (?,?,?,?,?)";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, b.getBook_name());
+            ps.setString(2, b.getDescription());
+            ps.setString(3, b.getShort_des());
+            ps.setInt(4, b.getAuthor().getAuthor_id());
+            ps.setInt(5, b.getCategory().getCategory_id());
+
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

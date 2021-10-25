@@ -15,11 +15,19 @@ public class book {
 
     private int book_id;
     private String book_name, description, short_des;
-    private ArrayList<author> author = new ArrayList<>();
+    private author author;
     private favorite favor;
     private category_book category;
     private ArrayList<feedback> feedback;
 
+    public author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(author author) {
+        this.author = author;
+    }
+    
     public ArrayList<feedback> getFeedback() {
         return feedback;
     }
@@ -43,9 +51,7 @@ public class book {
     public void setCategory(category_book category) {
         this.category = category;
     }
-    
-    
-    
+
     public int getBook_id() {
         return book_id;
     }
@@ -77,16 +83,6 @@ public class book {
     public void setShort_des(String short_des) {
         this.short_des = short_des;
     }
-
-    public ArrayList<author> getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(ArrayList<author> author) {
-        this.author = author;
-    }
-
-    
     
 
 }
