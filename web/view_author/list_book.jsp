@@ -15,7 +15,7 @@
         <style>
             table {
                 border-collapse: collapse;
-                width: 90%;
+                width: 100%;
                 margin: 0 auto;
             }
             .center{
@@ -29,6 +29,17 @@
                 height: 20px;
             }
         </style>
+        <script>
+            function doUpdate(id) {
+                window.location.href = "updatebook?id=" + id;
+            }
+//            function doDelete(id) {
+//                var confir = confirm("Are you sure?");
+//                if (confir) {
+//                    window.location.href = "delete?id=" + id;
+//                }
+//            }
+        </script>
     </head>
     <body>
         <table>
@@ -44,7 +55,10 @@
                     <td>${b.book_name}</td>
                     <td>${b.author.name}</td>
                     <td class="center">${b.category.category_name}</td>
+                    <td><a href="detail?id=${b.book_id}">Detail</a></td>
+                    <td><input type="button" onclick="doUpdate(${b.book_id});" value="update"/></td>
                 </tr>
+                <!--<tr></tr>-->
             </c:forEach>
         </table>
 
