@@ -22,15 +22,15 @@ import model.category_book;
  */
 public class libraryConnect extends DBConnect {
 
-    public book getbook(int book_id) {
+    public book getbook(String book_id) {
         try {
-            String sql = "select b.book_id,b.book_name,b.[description],b.short_des, cb.cate_id,cb.categoryName,\n"
+            String sql = "select b.book_id,b.book_name,b.[description],b.short_des,b.img_url, cb.cate_id,cb.categoryName,\n"
                     + "a.author_id,a.author_name\n"
                     + "from Book b inner join categoryBooks cb on b.categoryId = cb.cate_id\n"
                     + "inner join author a on b.author_id = a.author_id\n"
                     + "where b.book_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, book_id);
+            ps.setString(1, book_id);
             ResultSet rs = ps.executeQuery();
             book b = null;
             while (rs.next()) {

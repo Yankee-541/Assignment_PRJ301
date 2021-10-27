@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class book {
 
     private int book_id;
-    private String book_name, description, short_des;
+    private String book_name, description, short_des, url_img;
     private author author;
     private favorite favor;
     private category_book category;
