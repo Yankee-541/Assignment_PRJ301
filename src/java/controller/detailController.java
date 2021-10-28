@@ -8,12 +8,15 @@ package controller;
 import dao.libraryConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.author;
 import model.book;
+import model.category_book;
 
 /**
  *
@@ -25,24 +28,16 @@ public class detailController extends HttpServlet {
        protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
               response.setContentType("text/html;charset=UTF-8");
-              String bookID = request.getParameter("bid");
               libraryConnect lib = new libraryConnect();
-              book b = lib.getbook(bookID);
+              String id = request.getParameter("bid");
+              book b = lib.getbook(id);
+              ArrayList<author> auth = lib.getAuthor();
+              ArrayList<category_book> cates = lib.getCate();
+              request.setAttribute("auth", auth);
+              request.setAttribute("cates", cates);
               request.setAttribute("book", b);
               request.getRequestDispatcher("../view/home_detail.jsp").forward(request, response);
-              
-              
        }
-
-       // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-       /**
-        * Handles the HTTP <code>GET</code> method.
-        *
-        * @param request servlet request
-        * @param response servlet response
-        * @throws ServletException if a servlet-specific error occurs
-        * @throws IOException if an I/O error occurs
-        */
        @Override
        protected void doGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {

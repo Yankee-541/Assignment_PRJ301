@@ -55,7 +55,7 @@
                     <td>${b.book_name}</td>
                     <td>${b.author.name}</td>
                     <td class="center">${b.category.category_name}</td>
-                    <td><a href="detail?id=${b.book_id}">Detail</a></td>
+                    <td><a href="detail?bid=${b.book_id}">Detail</a></td>
                     <td><input type="button" onclick="doUpdate(${b.book_id});" value="update"/></td>
                 </tr>
                 <!--<tr></tr>-->

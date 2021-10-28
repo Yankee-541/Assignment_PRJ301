@@ -17,7 +17,7 @@
                                           <div class="">
                                                  <a href="detail?bid${b.book_id}"><img
                                                                class="medium_thum"
-                                                               src="https://nhasachmienphi.com/wp-content/uploads/tu-huyet-cam-xuc.jpg"></a>
+                                                               src="${b.url_img}"></a>
                                           </div>
                                           <h4 class="mg-t-10"><a class="title_sach"
                                                                  href="detail?bid=${b.book_id}">${b.book_name}</a></h4>

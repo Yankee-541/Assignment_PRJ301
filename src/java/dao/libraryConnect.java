@@ -24,7 +24,7 @@ public class libraryConnect extends DBConnect {
 
     public book getbook(String book_id) {
         try {
-            String sql = "select b.book_id,b.book_name,b.[description],b.short_des,b.img_url, cb.cate_id,cb.categoryName,\n"
+            String sql = "select b.book_id,b.book_name,b.[description],b.short_des,b.imagin, cb.cate_id,cb.categoryName,\n"
                     + "a.author_id,a.author_name\n"
                     + "from Book b inner join categoryBooks cb on b.categoryId = cb.cate_id\n"
                     + "inner join author a on b.author_id = a.author_id\n"
@@ -40,7 +40,8 @@ public class libraryConnect extends DBConnect {
                     b.setBook_name(rs.getString(2));
                     b.setDescription(rs.getString(3));
                     b.setShort_des(rs.getString(4));
-
+                    b.setUrl_img(rs.getString("imagin"));
+                    
                     category_book cb = new category_book();
                     cb.setCategory_id(rs.getInt("cate_id"));
                     cb.setCategory_name(rs.getString("categoryName"));
@@ -51,7 +52,6 @@ public class libraryConnect extends DBConnect {
 
                     b.setCategory(cb);
                     b.setAuthor(a);
-
                 }
             }
             return b;
@@ -77,6 +77,7 @@ public class libraryConnect extends DBConnect {
                     + "      ,[short_des] = ?\n"
                     + "      ,[author_id] = ?\n"
                     + "      ,[categoryId] = ?\n"
+                    +"       ,[imagin] = ?\n"
                     + " WHERE [Book].book_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, b.getBook_name());
@@ -84,7 +85,8 @@ public class libraryConnect extends DBConnect {
             ps.setString(3, b.getShort_des());
             ps.setInt(4, b.getAuthor().getAuthor_id());
             ps.setInt(5, b.getCategory().getCategory_id());
-            ps.setInt(6, b.getBook_id());
+            ps.setString(6, b.getUrl_img());
+            ps.setInt(7, b.getBook_id());
             ps.executeUpdate();//lấy giá trị từ SQL
 
 //            connection.commit();
@@ -218,16 +220,18 @@ public class libraryConnect extends DBConnect {
                     + "           ,[description]\n"
                     + "           ,[short_des]\n"
                     + "           ,[author_id]\n"
-                    + "           ,[categoryId])\n"
+                    + "           ,[categoryId]\n"
+                    +"             , [imagin])"
                     + "         VALUES\n"
-                    + "           (?,?,?,?,?)";
+                    + "           (?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, b.getBook_name());
             ps.setString(2, b.getDescription());
             ps.setString(3, b.getShort_des());
             ps.setInt(4, b.getAuthor().getAuthor_id());
             ps.setInt(5, b.getCategory().getCategory_id());
-
+            ps.setString(6, b.getUrl_img());
+            
             ps.executeUpdate();
 
         } catch (SQLException ex) {

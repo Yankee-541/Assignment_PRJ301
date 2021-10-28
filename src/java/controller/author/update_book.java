@@ -50,7 +50,8 @@ public class update_book extends HttpServlet {
         b.setBook_name(request.getParameter("book_name"));
         b.setDescription(request.getParameter("description"));
         b.setShort_des(request.getParameter("short_des"));
-
+        b.setUrl_img(request.getParameter("url_img"));
+        
         author a = new author();
         a.setAuthor_id(Integer.parseInt(request.getParameter("author_id")));
         b.setAuthor(a);

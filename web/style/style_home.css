@@ -1,191 +1,196 @@
 .select{
-    border: none;
+       border: none;
 }
 .container{
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 900px;
+       margin-right: auto;
+       margin-left: auto;
+       padding-left: 15px;
+       padding-right: 15px;
+       width: 900px;
 }
 ul li{
-    list-style: none;
+       list-style: none;
 }
 .content_page {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
-    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
-    /*box-shadow: #337ab7;*/
+       margin-bottom: 20px;
+       background-color: #fff;
+       border: 1px solid #e8e8e8;
+       border-radius: 4px;
+       -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+       box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+       /*box-shadow: #337ab7;*/
 }
 
-.collapse ul li{
-    margin: 0 30px;
-}
+/*.collapse ul li{
+       margin: 0 1px;
+}*/
 .collapse ul li:hover{
-    background-color: #e7e7e7;
-    border-radius: 3px;
+       background-color: #e7e7e7;
+       border-radius: 3px;
 }
 .sub-menu{
-    display: none;
-    /* border: 1px solid black; */
+       display: none;
+       height: auto;
+       width: 300px;
+
+       /* border: 1px solid black; */
 }
 .collapse ul li:hover .sub-menu{
-    display: block;
-    position: absolute;
-    background-color: #f0fff0;
+       display: block;
+       position: absolute;
+       background-color: #d5d5d5;
 }
 .collapse ul li:hover .sub-menu ul{
-    display: block;
+       display: block;
 }
 .collapse ul li:hover .sub-menu ul li{
-    margin: 15px 0px 15px -15px;
-    width: 100px;
-    border-bottom: 1px dotted #fff;
-    background: transparent;
-    border-radius: 0;
-    text-align:  left;
+       margin: 15px 0px 15px -15px;
+       width: 250px;
+       height: auto;
+       border-bottom: 1px dotted #fff;
+       background: transparent;
+       border-radius: 0;
+       text-align:  left;
 }
 .collapse ul li:hover .sub-menu ul li:hover{
-    width: 100px;
+       width: 250px;
+       height: auto;
 }
 .medium_thum {
-    color:#333333;
-    display:inline;
-    font-size: 14px;
-    line-height:18.2px;
+       color:#333333;
+       display:inline;
+       font-size: 14px;
+       line-height:18.2px;
 }
 img {
-    max-width: 100%;
-    height: auto;
+       max-width: 100%;
+       height: auto;
 }
 img {
-    vertical-align: middle;
+       vertical-align: middle;
 }
 img {
-    border: 0;
+       border: 0;
 }
 .item_sach{
-    color:#333333;
-    font-size:14px;
-    line-height:18.2px;
-    margin:0px 0px 30px;
-    padding:0px 15px;   
+       color:#333333;
+       font-size:14px;
+       line-height:18.2px;
+       margin:0px 0px 30px;
+       padding:0px 15px;   
 }
 .title_sach{
-    color:#555555;
-display:inline;
-font-family:Helvetica Neue;
-font-size:13px;
-line-height:16.9px;
+       color:#555555;
+       display:inline;
+       font-family:Helvetica Neue;
+       font-size:13px;
+       line-height:16.9px;
 }
 .containner{
-    color:#333333;
-font-size:14px;
-line-height:18.2px;
-margin:0px 239.4px 0px 239.389px;
-padding:0px 15px;
+       color:#333333;
+       font-size:14px;
+       line-height:18.2px;
+       margin:0px 239.4px 0px 239.389px;
+       padding:0px 15px;
 }
 .line{
-    border-bottom: 1px solid #d5d5d5;
+       border-bottom: 1px solid #d5d5d5;
 }
 .til_noti{
-    background-color:#dff0d8;
-border-radius:4px;
-color:#3c763d;
-font-size:14px;
-line-height:18.2px;
-margin:20px 0px;
-padding:15px;
+       background-color:#dff0d8;
+       border-radius:4px;
+       color:#3c763d;
+       font-size:14px;
+       line-height:18.2px;
+       margin:20px 0px;
+       padding:15px;
 }
 .hleft{
-    float: left;
-    width: 215px;
+       float: left;
+       width: 215px;
 }
 .hcenter{
-    width: calc(100% - 215px);
-    display: flex;
-    align-items: center;
-    height: 115px;
+       width: calc(100% - 215px);
+       display: flex;
+       align-items: center;
+       height: 115px;
 }
 .hcenter-child{
-    float:left;
+       float:left;
 
 }
 .hcenter-child-search{
-    float:right;
-    margin-left: 30px;
+       float:right;
+       margin-left: 30px;
 }
 
 
 .content_page .title_page {
-    padding: 10px 15px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
-    font-size: 16px;
-    font-weight: 400;
+       padding: 10px 15px;
+       border-bottom: 1px solid transparent;
+       border-top-left-radius: 3px;
+       border-top-right-radius: 3px;
+       color: #fff;
+       background-color: #337ab7;
+       border-color: #337ab7;
+       font-size: 16px;
+       font-weight: 400;
 }
 .pd-lr-20 {
-    padding-left: 20px;
-    padding-right: 20px;
+       padding-left: 20px;
+       padding-right: 20px;
 }
 .mg-b-30 {
-    margin-bottom: 30px;
+       margin-bottom: 30px;
 }
 .pd-15 {
-    padding: 15px;
+       padding: 15px;
 }
 .item_folder_sidebar a {
-    color: #337ab7;
-    display: block;
-    padding: 5px 15px;
-    font-size: 12px;
+       color: #337ab7;
+       display: block;
+       padding: 5px 15px;
+       font-size: 12px;
 }
 .fb_iframe_widget {
-    display: inline-block;
-    position: relative;
+       display: inline-block;
+       position: relative;
 }
 ._8f1i {
-    background-color: rgba(9, 30, 66);
-    border-radius: inherit;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+       background-color: rgba(9, 30, 66);
+       border-radius: inherit;
+       height: 100%;
+       left: 0;
+       opacity: 0;
+       position: absolute;
+       top: 0;
+       width: 100%;
 }
 .main_menu {
-    margin-top: 10px;
-    text-align: center;
+       margin-top: 10px;
+       text-align: center;
 }
 
 #footer {
-    overflow: hidden;
-    margin: 20px 0 0px 0;
-    clear: both;
-    background: #DDDDDD;
-    border-top: 2px solid #e89126;
-    padding: 10px 0 10px 0;
+       overflow: hidden;
+       margin: 20px 0 0px 0;
+       clear: both;
+       background: #DDDDDD;
+       border-top: 2px solid #e89126;
+       padding: 10px 0 10px 0;
 }
 .wrapper {
-    width: 1200px;
-    margin: auto;
-    clear: both;
+       width: 1200px;
+       margin: auto;
+       clear: both;
 }
 #footer .content-ft table {
-    width: 100% !important;
+       width: 100% !important;
 }
 .footer_tag {
-        text-align: center;
+       text-align: center;
 
-    border-top: 0.5px solid #f2f2f2;
-    border-bottom: 0.5px solid #f2f2f2;
-    padding: 8px 0 6px 0;
+       border-top: 0.5px solid #f2f2f2;
+       border-bottom: 0.5px solid #f2f2f2;
+       padding: 8px 0 6px 0;
 }

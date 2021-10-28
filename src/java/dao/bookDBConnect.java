@@ -31,11 +31,9 @@ public class bookDBConnect extends DBConnect {
                 b.setBook_name(rs.getString(2));
                 b.setDescription(rs.getString(3));
                 b.setShort_des(rs.getString(4));
-
+                b.setUrl_img(rs.getString("imagin"));
                 books.add(b);
-
             }
-            return books;
         } catch (SQLException ex) {
             Logger.getLogger(bookDBConnect.class.getName()).log(Level.SEVERE, null, ex);
         }

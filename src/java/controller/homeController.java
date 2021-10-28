@@ -30,22 +30,13 @@ public class homeController extends HttpServlet {
 
         category_author_DBConnect cdbc = new category_author_DBConnect();
         ArrayList<category_book> list_cate = cdbc.get_cateBook();
-        request.setAttribute("categories", list_cate);
+        request.setAttribute("cates", list_cate);
 
         request.setAttribute("books", books);
         request.getRequestDispatcher("../view/home.jsp").forward(request, response);
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

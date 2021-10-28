@@ -33,10 +33,11 @@
             }
         </style>
     </head>
-    <body>
+    <body>                
+
         <div class="container">
             <div class="left">
-                <h2>Insert Book</h2>
+                   <h2 style="margin-top: 5px">Insert Book</h2>
                 <form action="insert" method="POST">
                     <table>
                         <tr>
@@ -53,7 +54,11 @@
                         </tr>
                         <tr>
                             <td>Short description</td>
-                            <td><textarea id="short_des" name="short_des" rows="10" cols="80"></textarea></td>
+                            <td><textarea id="short_des" name="short_des" rows="8" cols="80"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Url Imagin</td>
+                            <td><textarea id="short_des" name="url_img" rows="3" cols="80"></textarea></td>
                         </tr>
                         <tr>
                             <td>Author name</td>

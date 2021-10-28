@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 28, 2021, 5:49:46 PM
+    Author     : Tebellum
+*/
+
+.content_page {
+       margin-bottom: 20px;
+       background-color: #fff;
+       border: 1px solid #e8e8e8;
+       border-radius: 4px ;
+/*       -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+       box-shadow: 0 1px 1px rgb(0 0 0 / 5%);*/
+}
+.pd-20 {
+       padding: 20px;
+}
+.ads_text {
+       margin-top: 10px;
+       margin-bottom: 10px;
+       text-align: center;
+}

@@ -36,8 +36,7 @@
     <div class="content_page">
         <div class="title_page">Thể Loại Sách</div>
         <div class="item_folder_sidebar">
-            <c:forEach items="${requestScope.categories}" var="c">
-
+            <c:forEach items="${requestScope.cates}" var="c">
                 <a href="https://nhasachmienphi.com/category/am-thuc-nau-an"><i
                         class="fa fa-dot-circle-o"></i>${c.category_name}</a>
             </c:forEach>
