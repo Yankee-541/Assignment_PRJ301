@@ -141,33 +141,32 @@ public class libraryConnect extends DBConnect {
 //            System.out.println(b.getBook_name());
 //        }
 //    }
-    public account getAcc(String user, String pass) {
-        try {
-            String sql = "select * from account where username = ? and [password] = ? ";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, user);
-            ps.setString(2, pass);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                account acc = new account();
-                acc.setUser_id(rs.getInt(1));
-                acc.setUser_name(user);
-                acc.setPassword(pass);
-                acc.setDisplay_name(rs.getString(4));
-                acc.setPhone(rs.getString(5));
-                acc.setEmail(rs.getString(6));
-                acc.setIsAdmin(rs.getInt(7));
-                acc.setIsSell(rs.getInt(8));
-
-                return acc;
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-
-    }
+//    public account getAcc(String user, String pass) {
+//        try {
+//            String sql = "select * from account where username = ? and [password] = ? ";
+//            PreparedStatement ps = connection.prepareStatement(sql);
+//            ps.setString(1, user);
+//            ps.setString(2, pass);
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                account acc = new account();
+//                acc.setUser_id(rs.getInt(1));
+//                acc.setUser_name(user);
+//                acc.setPassword(pass);
+//                acc.setDisplay_name(rs.getString(4));
+//                acc.setPhone(rs.getString(5));
+//                acc.setEmail(rs.getString(6));
+//                acc.setIsAdmin(rs.getInt(7));
+//                acc.setIsSell(rs.getInt(8));
+//
+//                return acc;
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
 
     public ArrayList<author> getAuthor() {
         ArrayList<author> listAuthor = new ArrayList<>();

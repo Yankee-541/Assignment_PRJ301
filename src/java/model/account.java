@@ -13,89 +13,98 @@ import java.util.ArrayList;
  */
 public class account {
 
-    private int user_id, isSell, isAdmin;
-    private String user_name, password, display_name, phone, email;
-    private ArrayList<feedback> feedback;
-    private favorite favorite;
+       private int user_id, isSell, isAdmin;
+       private String user_name, password, display_name, phone, email;
+       private ArrayList<feedback> feedback;
+       private favorite favorite;
+       private ArrayList<feature> feature = new ArrayList<>();
 
-    public int getIsSell() {
-        return isSell;
-    }
+       public ArrayList<feature> getFeature() {
+              return feature;
+       }
 
-    public void setIsSell(int isSell) {
-        this.isSell = isSell;
-    }
+       public void setFeature(ArrayList<feature> feature) {
+              this.feature = feature;
+       }
 
-    public int getIsAdmin() {
-        return isAdmin;
-    }
+       public int getIsSell() {
+              return isSell;
+       }
 
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
-    }
+       public void setIsSell(int isSell) {
+              this.isSell = isSell;
+       }
 
-    public ArrayList<feedback> getFeedback() {
-        return feedback;
-    }
+       public int getIsAdmin() {
+              return isAdmin;
+       }
 
-    public void setFeedback(ArrayList<feedback> feedback) {
-        this.feedback = feedback;
-    }
+       public void setIsAdmin(int isAdmin) {
+              this.isAdmin = isAdmin;
+       }
 
-    public favorite getFavorite() {
-        return favorite;
-    }
+       public ArrayList<feedback> getFeedback() {
+              return feedback;
+       }
 
-    public void setFavorite(favorite favorite) {
-        this.favorite = favorite;
-    }
+       public void setFeedback(ArrayList<feedback> feedback) {
+              this.feedback = feedback;
+       }
 
-    public int getUser_id() {
-        return user_id;
-    }
+       public favorite getFavorite() {
+              return favorite;
+       }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
+       public void setFavorite(favorite favorite) {
+              this.favorite = favorite;
+       }
 
-    public String getUser_name() {
-        return user_name;
-    }
+       public int getUser_id() {
+              return user_id;
+       }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
+       public void setUser_id(int user_id) {
+              this.user_id = user_id;
+       }
 
-    public String getPassword() {
-        return password;
-    }
+       public String getUser_name() {
+              return user_name;
+       }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+       public void setUser_name(String user_name) {
+              this.user_name = user_name;
+       }
 
-    public String getDisplay_name() {
-        return display_name;
-    }
+       public String getPassword() {
+              return password;
+       }
 
-    public void setDisplay_name(String display_name) {
-        this.display_name = display_name;
-    }
+       public void setPassword(String password) {
+              this.password = password;
+       }
 
-    public String getPhone() {
-        return phone;
-    }
+       public String getDisplay_name() {
+              return display_name;
+       }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+       public void setDisplay_name(String display_name) {
+              this.display_name = display_name;
+       }
 
-    public String getEmail() {
-        return email;
-    }
+       public String getPhone() {
+              return phone;
+       }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+       public void setPhone(String phone) {
+              this.phone = phone;
+       }
+
+       public String getEmail() {
+              return email;
+       }
+
+       public void setEmail(String email) {
+              this.email = email;
+       }
 
 }

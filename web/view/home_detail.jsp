@@ -45,7 +45,7 @@
                                                         <div class="alert alert-info" role="alert"> <i class="fa fa-download"></i> Vui lòng chọn định dạng file để tải hoặc đọc online. </div>
                                                         <div class="">
                                                                <a download="" target="_blank" class="button pdf" href="${requestScope.book.description}">PDF</a>											
-                                                               <!--<a target="_blank" class="button readonline" href="https://nhasachmienphi.com/readfile-online?id=316626&amp;type=pdf"><i class="fa fa-star"></i> Đọc Online</a>-->
+                                                               <!--<a target="_blank" class="button readonline" href="${requestScope.book.description}"><i class="fa fa-star"></i> Đọc Online</a>-->
                                                         </div>
                                                         <div>
                                                                <a class="icon_social instagram" href="https://www.instagram.com/?url=https://nhasachmienphi.com/english-grammar-workbook-for-dummies.html">
@@ -65,7 +65,7 @@
                                           </div>
                                           <div class="content_p content_p_al">
                                                  <div class="gioi_thieu_sach text-justify">
-                                                        <span>${requestScope.book.short_des}</span>
+                                                        <textarea rows="30"  cols="75" disabled="disabled">${requestScope.book.short_des}</textarea>
                                                  </div>
                                           </div>
                                    </div>

@@ -18,8 +18,9 @@
                           ">
                             <div class="hcenter-child">
                                    <ul class="menu-main nav navbar-nav">
-                                          <li class="active"><a href="#">Home <span class="sr-only"></span></a></li>
-                                          <li style="z-index: 2;"><a href="#">
+                                          <li class="active"><a href="home"style="padding: 10px 10px;">Home <span class="sr-only"></span></a></li>
+                                          <li style="z-index: 2;">
+                                                 <a href="category"style="padding: 10px 10px;">
                                                         Thể loại sách<i class="fas fa-sort-down"
                                                                         style="vertical-align: top;padding-left: 5px;"></i>
                                                  </a>
@@ -33,7 +34,11 @@
                                                         </ul>
                                                  </div>
                                           </li>
-                                          <li><a href="#">Góc review</a></li>
+                                          <li><a href="review"style="padding: 10px 10px;">Góc review</a></li>
+                                          <li><a href="login"style="padding: 10px 10px;">Login</a></li>
+                                          <li><a href="#"style="padding: 10px 10px;">Logout</a></li>
+                                          <li><a href="#"style="padding: 10px 10px;">Manager Book</a></li>
+                                          <li><a href="#" style="padding: 10px 10px;">Hello Admin</a></li>
                                    </ul>
                             </div>
                             <div class="hcenter-child-search">
