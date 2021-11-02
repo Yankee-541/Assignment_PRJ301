@@ -3,38 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package controller.login;
 
-import dao.category_author_DBConnect;
-import dao.libraryConnect;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.book;
-import model.category_book;
 
 /**
  *
  * @author Tebellum
  */
-@WebServlet(name = "list_book", urlPatterns = {"/library/list"})
-public class list_book extends HttpServlet {
+@WebServlet(name = "sigup_controller", urlPatterns = {"/library/sigup"})
+public class sigup_controller extends HttpServlet {
 
        protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
               response.setContentType("text/html;charset=UTF-8");
-              libraryConnect l = new libraryConnect();
-              ArrayList<book> books = l.getBooks();
-              category_author_DBConnect cdbc = new category_author_DBConnect();
-              ArrayList<category_book> list_cate = cdbc.get_cateBook();
-              request.setAttribute("cates", list_cate);
-              request.setAttribute("books", books);
-              request.getRequestDispatcher("../view_author/list_book.jsp").forward(request, response);
-
+              
        }
 
        // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

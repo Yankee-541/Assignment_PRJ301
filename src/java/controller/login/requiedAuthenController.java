@@ -25,7 +25,7 @@ public abstract class requiedAuthenController extends HttpServlet {
                      return false;
               }
               String url = request.getServletPath();
-              for (feature f : a.getFeature()) {
+              for(feature f : a.getFeature()) {
                      if (f.getUrl().equals(url)) {
                             return true;
                      }

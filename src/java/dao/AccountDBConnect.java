@@ -16,7 +16,7 @@ import model.account;
  *
  * @author Tebellum
  */
-public class AccountDBConnect extends DBConnect{
+public class AccountDBConnect extends DBConnect {
 
        public account getAcc(String user, String pass) {
               try {
@@ -33,15 +33,48 @@ public class AccountDBConnect extends DBConnect{
                             acc.setDisplay_name(rs.getString(4));
                             acc.setPhone(rs.getString(5));
                             acc.setEmail(rs.getString(6));
-                            acc.setIsAdmin(rs.getInt(7));
-                            acc.setIsSell(rs.getInt(8));
-
+                            acc.setImg(rs.getString(7));
+//                            acc.setIsAdmin(rs.getInt(7));
+//                            acc.setIsSell(rs.getInt(8));
                             return acc;
                      }
-
               } catch (SQLException ex) {
                      Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
               }
               return null;
        }
+
+       public account getInfomation(String user) {
+              try {
+                     String sql = "select * from account \n"
+                             + "where account.user_id = ?";
+                     PreparedStatement ps = connection.prepareStatement(sql);
+                     ps.setString(1, user);
+                     ResultSet rs = ps.executeQuery();
+                     if (rs.next()) {
+                            account acc = new account();
+                            acc.setUser_id(rs.getInt(1));
+                            acc.setUser_name(user);
+//                            acc.setPassword(rs.getString(3));
+                            acc.setDisplay_name(rs.getString(4));
+                            acc.setPhone(rs.getString(5));
+                            acc.setEmail(rs.getString(6));
+                            acc.setImg(rs.getString(7));
+                            return acc;
+
+                     }
+
+              } catch (SQLException ex) {
+                     Logger.getLogger(AccountDBConnect.class.getName()).log(Level.SEVERE, null, ex);
+              }
+              return null;
+       }
+
+//       public static void main(String[] args) {
+//              AccountDBConnect a = new AccountDBConnect();
+//              String u = "dang";
+//              String p = "dang";
+//              account acc = a.getAcc(u, p);
+//              System.out.println(acc.getUser_name());
+//       }
 }

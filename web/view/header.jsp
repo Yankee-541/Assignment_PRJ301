@@ -21,24 +21,32 @@
                                           <li class="active"><a href="home"style="padding: 10px 10px;">Home <span class="sr-only"></span></a></li>
                                           <li style="z-index: 2;">
                                                  <a href="category"style="padding: 10px 10px;">
-                                                        Thể loại sách<i class="fas fa-sort-down"
-                                                                        style="vertical-align: top;padding-left: 5px;"></i>
+                                                        Thể loại sách
+                                                        <i class="fas fa-sort-down"
+                                                           style="vertical-align: top;padding-left: 5px;">                                                                                      
+                                                        </i>
                                                  </a>
                                                  <div class="sub-menu">
                                                         <ul>
-                                                               <c:forEach items="${cates}" var="c">
-                                                                      <li>
-                                                                             <a href="#">${c.category_name}</a>
-                                                                      </li>
+                                                               <form action="searchByCategory" method="POST">
+                                                                      <c:forEach items="${cates}" var="c">
+                                                                             <li>
+                                                                                    <a href="searchByCategory?cid=${c.category_id}">${c.category_name}</a>
+                                                                             </li>
+                                                                      </form>
                                                                </c:forEach>
                                                         </ul>
                                                  </div>
                                           </li>
                                           <li><a href="review"style="padding: 10px 10px;">Góc review</a></li>
-                                          <li><a href="login"style="padding: 10px 10px;">Login</a></li>
-                                          <li><a href="#"style="padding: 10px 10px;">Logout</a></li>
-                                          <li><a href="#"style="padding: 10px 10px;">Manager Book</a></li>
-                                          <li><a href="#" style="padding: 10px 10px;">Hello Admin</a></li>
+                                                 <c:if test="${sessionScope.account == null}">
+                                                 <li><a href="login"style="padding: 10px 10px;">Login</a></li>
+                                                 </c:if>
+                                                 <c:if test="${sessionScope.account != null}">
+                                                 <li><a href="list"style="padding: 10px 10px;">Manager Book</a></li>
+                                                 <li><a href="logout"style="padding: 10px 10px;">Logout</a></li>
+                                                 <li><a href="profile?id=${sessionScope.account.user_id}" style="padding: 10px 10px;">Hello ${sessionScope.account.display_name}</a></li>
+                                                 </c:if>
                                    </ul>
                             </div>
                             <div class="hcenter-child-search">

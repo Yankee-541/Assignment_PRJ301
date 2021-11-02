@@ -14,13 +14,21 @@ import java.util.ArrayList;
 public class account {
 
        private int user_id, isSell, isAdmin;
-       private String user_name, password, display_name, phone, email;
+       private String user_name, password, display_name, phone, email, img;
        private ArrayList<feedback> feedback;
        private favorite favorite;
        private ArrayList<feature> feature = new ArrayList<>();
 
        public ArrayList<feature> getFeature() {
               return feature;
+       }
+
+       public String getImg() {
+              return img;
+       }
+
+       public void setImg(String img) {
+              this.img = img;
        }
 
        public void setFeature(ArrayList<feature> feature) {

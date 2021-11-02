@@ -5,7 +5,6 @@
  */
 package controller;
 
-import dao.category_author_DBConnect;
 import dao.libraryConnect;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,25 +14,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.book;
-import model.category_book;
 
 /**
  *
  * @author Tebellum
  */
-@WebServlet(name = "list_book", urlPatterns = {"/library/list"})
-public class list_book extends HttpServlet {
+@WebServlet(name = "search_category", urlPatterns = {"/library/searchByCategory"})
+public class search_category extends HttpServlet {
 
        protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
               response.setContentType("text/html;charset=UTF-8");
-              libraryConnect l = new libraryConnect();
-              ArrayList<book> books = l.getBooks();
-              category_author_DBConnect cdbc = new category_author_DBConnect();
-              ArrayList<category_book> list_cate = cdbc.get_cateBook();
-              request.setAttribute("cates", list_cate);
+              int cid = Integer.parseInt(request.getParameter("cid"));
+              libraryConnect ldb = new libraryConnect();
+              ArrayList<book> books = ldb.searchBookByCate(cid);
+
               request.setAttribute("books", books);
-              request.getRequestDispatcher("../view_author/list_book.jsp").forward(request, response);
+              request.getRequestDispatcher("../view/home.jsp").forward(request, response);
 
        }
 
