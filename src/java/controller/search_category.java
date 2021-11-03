@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.category_author_DBConnect;
 import dao.libraryConnect;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.book;
+import model.category_book;
 
 /**
  *
@@ -28,7 +30,9 @@ public class search_category extends HttpServlet {
               int cid = Integer.parseInt(request.getParameter("cid"));
               libraryConnect ldb = new libraryConnect();
               ArrayList<book> books = ldb.searchBookByCate(cid);
-
+              category_author_DBConnect cdbc = new category_author_DBConnect();
+              ArrayList<category_book> list_cate = cdbc.get_cateBook();
+              request.setAttribute("cates", list_cate);
               request.setAttribute("books", books);
               request.getRequestDispatcher("../view/home.jsp").forward(request, response);
 

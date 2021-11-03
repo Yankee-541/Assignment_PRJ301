@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class account {
 
-       private int user_id, isSell, isAdmin;
+       private int user_id;
        private String user_name, password, display_name, phone, email, img;
        private ArrayList<feedback> feedback;
        private favorite favorite;
@@ -33,22 +33,6 @@ public class account {
 
        public void setFeature(ArrayList<feature> feature) {
               this.feature = feature;
-       }
-
-       public int getIsSell() {
-              return isSell;
-       }
-
-       public void setIsSell(int isSell) {
-              this.isSell = isSell;
-       }
-
-       public int getIsAdmin() {
-              return isAdmin;
-       }
-
-       public void setIsAdmin(int isAdmin) {
-              this.isAdmin = isAdmin;
        }
 
        public ArrayList<feedback> getFeedback() {

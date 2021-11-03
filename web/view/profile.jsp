@@ -84,15 +84,21 @@
                                                  <div class="col-sm-8">
                                                         <div class="pb-1 text-secondary">${requestScope.account.phone}</div>
                                                  </div>
+                                                 <div class="col-sm-4">
+                                                        <div class="pb-1"><b></b></div>
+                                                 </div>
+                                                 <div class="col-sm-4">
+                                                        <div class="pb-1"><b><a href="#" style="font-size: x-large"><i class="fas fa-user-cog"></i></a></b></div>
+                                                 </div>
                                           </div>
                                    </div>
                                    <div class="about-section pt-4 px-3 px-lg-4 mt-1">
                                           <div class="row">
-                                                 <!--                                                        <div class="col-md-6">
-                                                                                                                <h2 class="h3 mb-3">About Me</h2>
-                                                                                                                <p>Hello! I’m Joyce Harrison. I am passionate about UI/UX design and Web Design. I am a skilled Front-end
-                                                                                                                       Developer and master of Graphic Design tools such as Photoshop and Sketch.</p>
-                                                                                                         </div>-->
+                                                 <!--                                                                                                         <div class="col-md-6">
+                                                                                                                                                                 <h2 class="h3 mb-3">About Me</h2>
+                                                                                                                                                                 <p>Hello! I’m Joyce Harrison. I am passionate about UI/UX design and Web Design. I am a skilled Front-end
+                                                                                                                                                                        Developer and master of Graphic Design tools such as Photoshop and Sketch.</p>
+                                                                                                                                                          </div>-->
                                                  <div class="col-md-5 offset-md-1">
                                                         <div class="row mt-2">
                                                                <!--                                                                      <div class="col-sm-4">

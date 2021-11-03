@@ -148,9 +148,14 @@
                      <!--//sign up-->
                      <form action="signup" method="POST" class="form-signup">
                             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
+                            <input name="userDisplayName" type="text" id="user-name" class="form-control" placeholder="Full name">
                             <input name="user" type="text" id="user-name" class="form-control" placeholder="User name" required="" autofocus="">
                             <input name="pass" type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
                             <input name="repass" type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
+
+<!--                            <input name="phoneNumber" type="text      " id="user-name" class="form-control" placeholder="Phone number">
+                            <input name="email" type="text" id="user-name" class="form-control" placeholder="Email" >-->
+
                             <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
                             <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
                      </form>

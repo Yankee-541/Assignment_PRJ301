@@ -5,6 +5,7 @@
  */
 package controller.login;
 
+import dao.AccountDBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,54 +13,44 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.account;
 
 /**
  *
  * @author Tebellum
  */
-@WebServlet(name = "sigup_controller", urlPatterns = {"/library/sigup"})
+@WebServlet(name = "sigup_controller", urlPatterns = {"/library/signup"})
 public class sigup_controller extends HttpServlet {
 
-       protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-               throws ServletException, IOException {
-              response.setContentType("text/html;charset=UTF-8");
-              
-       }
-
-       // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-       /**
-        * Handles the HTTP <code>GET</code> method.
-        *
-        * @param request servlet request
-        * @param response servlet response
-        * @throws ServletException if a servlet-specific error occurs
-        * @throws IOException if an I/O error occurs
-        */
        @Override
        protected void doGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
-              processRequest(request, response);
+              request.getRequestDispatcher("../view/login/Login.jsp").forward(request, response);
        }
 
-       /**
-        * Handles the HTTP <code>POST</code> method.
-        *
-        * @param request servlet request
-        * @param response servlet response
-        * @throws ServletException if a servlet-specific error occurs
-        * @throws IOException if an I/O error occurs
-        */
        @Override
        protected void doPost(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
-              processRequest(request, response);
+              account a = new account();
+              a.setDisplay_name(request.getParameter("userDisplayName"));
+              a.setUser_name(request.getParameter("user"));
+              a.setPassword(request.getParameter("pass"));
+
+              AccountDBConnect adb = new AccountDBConnect();
+              adb.sigup(a);
+
+              a = adb.getAcc(a.getUser_name(), a.getPassword());
+              if (a == null) {
+                     request.setAttribute("mess", "!!! Invalid username or pasword");
+                     request.getSession().setAttribute("account", a);
+                     request.getRequestDispatcher("../view/login/Login.jsp").forward(request, response);
+              } else {
+                     request.getSession().setAttribute("account", a);
+                     response.sendRedirect("home");
+              }
+
        }
 
-       /**
-        * Returns a short description of the servlet.
-        *
-        * @return a String containing servlet description
-        */
        @Override
        public String getServletInfo() {
               return "Short description";

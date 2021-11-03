@@ -69,7 +69,11 @@
                                                  </div>
                                           </div>
                                    </div>
-
+                                   <div class="content_page">
+                                          <div class="title_page">Bình luận</div>
+                                          <div class="pd-15">
+                                          </div>
+                                   </div>
                             </div>
                             <jsp:include page="home_left.jsp"></jsp:include>
                             </div>

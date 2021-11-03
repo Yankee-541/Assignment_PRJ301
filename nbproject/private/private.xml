@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/controller/search_category.java</file>
-            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/controller/Category_controller.java</file>
-            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/dao/libraryConnect.java</file>
-            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/web/view/header.jsp</file>
-            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/dao/bookDBConnect.java</file>
-            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/controller/homeController.java</file>
+            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/web/view/login/Login.jsp</file>
+            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/controller/login/sigup_controller.java</file>
+            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/controller/login/login_controller.java</file>
+            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/src/java/dao/AccountDBConnect.java</file>
+            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/web/view/profile.jsp</file>
+            <file>file:/C:/Users/admin/Documents/Semester_4/PRJ_301/code/Assignment_PRJ301/web/view/home_detail.jsp</file>
         </group>
     </open-files>
 </project-private>

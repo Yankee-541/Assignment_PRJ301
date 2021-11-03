@@ -70,6 +70,25 @@ public class AccountDBConnect extends DBConnect {
               return null;
        }
 
+       public void sigup(account a) {
+              try {
+                     String sql = "INSERT INTO [account]\n"
+                             + "           ([username]\n"
+                             + "           ,[password]\n"
+                             + "           ,[displayname])\n"
+                             + "     VALUES\n"
+                             + "           (?,?,?)";
+                     PreparedStatement ps = connection.prepareStatement(sql);
+                     ps.setString(1, a.getUser_name());
+                     ps.setString(2, a.getPassword());
+                     ps.setString(3, a.getDisplay_name());
+                     ps.executeUpdate();
+                     
+              } catch (SQLException ex) {
+                     Logger.getLogger(AccountDBConnect.class.getName()).log(Level.SEVERE, null, ex);
+              }   
+       }
+
 //       public static void main(String[] args) {
 //              AccountDBConnect a = new AccountDBConnect();
 //              String u = "dang";

@@ -62,19 +62,44 @@ a:hover{
 .icon_social.twitter{
        background-color: #1da1f2;
 }
-.hleft {
-       float: left;
-       width: 215px;
+.item_folder a {
+       color: #337ab7;
+       font-size: 16px;
 }
-.hcenter {
-       float: left;
-       width: calc(100% - 430px);
-       width: -webkit-calc(100% - 430px);
+.item_folder a {
+       color: #337ab7;
+       font-size: 14px;
 }
-.hright {
-       float: right;
-       width: 215px;
-       text-align: right;
+.item_folder a i{
+
+       margin-right: 5px;
+}
+.item_sach:nth-child(4n+1) {
+       clear: left;
+}
+a.title_sach {
+       font-weight: 400;
+       font-size: 13px;
+       color: #555;
+}
+.content_page {
+       margin-bottom: 20px;
+       background-color: #fff;
+       border: 1px solid #e8e8e8;
+       border-radius: 4px;
+       -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+       box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.content_page .title_page {
+       padding: 10px 15px;
+       border-bottom: 1px solid transparent;
+       border-top-left-radius: 3px;
+       border-top-right-radius: 3px;
+       color: #fff;
+       background-color: #337ab7;
+       border-color: #337ab7;
+       font-size: 16px;
+       font-weight: 400;
 }
 #search {
        border: 1px solid #e5e5e5;
