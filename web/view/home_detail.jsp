@@ -69,11 +69,18 @@
                                                  </div>
                                           </div>
                                    </div>
-                                   <div class="content_page">
-                                          <div class="title_page">Bình luận</div>
-                                          <div class="pd-15">
+                                   <form action="comment" method="POST">
+
+                                          <div class="content_page">
+                                                 <div class="title_page">Bình luận</div>
+                                                 <div class="pd-15">
+                                                        <textarea rows="10"  cols="70">
+                                                        
+                                                        </textarea><br><br>
+                                                        <input type="submit" value="Post" />
+                                                 </div>
                                           </div>
-                                   </div>
+                                   </form>
                             </div>
                             <jsp:include page="home_left.jsp"></jsp:include>
                             </div>

@@ -88,7 +88,7 @@
                                                         <div class="pb-1"><b></b></div>
                                                  </div>
                                                  <div class="col-sm-4">
-                                                        <div class="pb-1"><b><a href="#" style="font-size: x-large"><i class="fas fa-user-cog"></i></a></b></div>
+                                                        <div class="pb-1"><b><a href="editInformation" style="font-size: x-large"><i class="fas fa-user-cog"></i></a></b></div>
                                                  </div>
                                           </div>
                                    </div>

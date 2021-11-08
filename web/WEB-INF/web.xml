@@ -12,6 +12,10 @@
         <servlet-name>homeController</servlet-name>
         <servlet-class>controller.homeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Search_Controller</servlet-name>
+        <servlet-class>controller.Search_Controller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>author_controller</servlet-name>
         <url-pattern>/library/author</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>homeController</servlet-name>
         <url-pattern>/library/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search_Controller</servlet-name>
+        <url-pattern>/library/search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -23,8 +23,14 @@
                                                                  href="detail?bid=${b.book_id}">${b.book_name}</a></h4>
                                    </div>
                             </c:forEach>
-
                      </div>
+
+                     <div class="" style="display: block; background: antiquewhite;">
+                            <div class="wp-pagenavi" style="display: table;" role="navigation">
+                                       <div id="paggerBottom" style="height: 30px; widows: 100%" class="pagger"></div> 
+                            </div>					
+                     </div>
+
               </div>
        </div>
 </div>

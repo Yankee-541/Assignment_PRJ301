@@ -21,9 +21,6 @@ ul li{
        /*box-shadow: #337ab7;*/
 }
 
-/*.collapse ul li{
-       margin: 0 1px;
-}*/
 .collapse ul li:hover{
        background-color: #e7e7e7;
        border-radius: 3px;

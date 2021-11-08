@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.account;
-import model.feature;
+import model.permission;
 
 /**
  *
@@ -24,8 +24,8 @@ public abstract class requiedAuthenController extends HttpServlet {
               if (a == null) {
                      return false;
               }
-              String url = request.getServletPath();
-              for(feature f : a.getFeature()) {
+              String url = request.getServletPath();//laấy các url đc trả về
+              for(permission f : a.getPermistion()) {
                      if (f.getUrl().equals(url)) {
                             return true;
                      }

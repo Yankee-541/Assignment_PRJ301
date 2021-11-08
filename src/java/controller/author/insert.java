@@ -5,6 +5,7 @@
  */
 package controller.author;
 
+import controller.login.requiedAuthenController;
 import dao.libraryConnect;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,47 +23,47 @@ import model.category_book;
  * @author Tebellum
  */
 @WebServlet(name = "insert", urlPatterns = {"/library/insert"})
-public class insert extends HttpServlet {
+public class insert extends requiedAuthenController {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        libraryConnect lib = new libraryConnect();
-        ArrayList<author> auth = lib.getAuthor();
-        ArrayList<category_book> cates = lib.getCate();
-        request.setAttribute("auth", auth);
-        request.setAttribute("cates", cates);
+       @Override
+       protected void processGet(HttpServletRequest request, HttpServletResponse response)
+               throws ServletException, IOException {
+              request.setCharacterEncoding("UTF-8");
+              libraryConnect lib = new libraryConnect();
+              ArrayList<author> auth = lib.getAuthor();
+              ArrayList<category_book> cates = lib.getCate();
+              request.setAttribute("auth", auth);
+              request.setAttribute("cates", cates);
 
-        request.getRequestDispatcher("../view_author/insert.jsp").forward(request, response);
-    }
+              request.getRequestDispatcher("../view_author/insert.jsp").forward(request, response);
+       }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        book b = new book();
-        b.setBook_name(request.getParameter("book_name"));
-        b.setDescription(request.getParameter("description"));
-        b.setShort_des(request.getParameter("short_des"));
-        b.setUrl_img(request.getParameter("url_img"));
-        
-        author a = new author();
-        a.setAuthor_id(Integer.parseInt(request.getParameter("author_id")));
-        b.setAuthor(a);
-        category_book c = new category_book();
-        c.setCategory_id(Integer.parseInt(request.getParameter("category_id")));
-        b.setCategory(c);
+       @Override
+       protected void processPost(HttpServletRequest request, HttpServletResponse response)
+               throws ServletException, IOException {
+              request.setCharacterEncoding("UTF-8");
+              book b = new book();
+              b.setBook_name(request.getParameter("book_name"));
+              b.setDescription(request.getParameter("description"));
+              b.setShort_des(request.getParameter("short_des"));
+              b.setUrl_img(request.getParameter("url_img"));
 
-        libraryConnect lib = new libraryConnect();
-        lib.insert(b);
-        response.sendRedirect("insert");
+              author a = new author();
+              a.setAuthor_id(Integer.parseInt(request.getParameter("author_id")));
+              b.setAuthor(a);
+              category_book c = new category_book();
+              c.setCategory_id(Integer.parseInt(request.getParameter("category_id")));
+              b.setCategory(c);
 
-    }
+              libraryConnect lib = new libraryConnect();
+              lib.insert(b);
+              response.sendRedirect("insert");
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+       }
+
+       @Override
+       public String getServletInfo() {
+              return "Short description";
+       }// </editor-fold>
 
 }

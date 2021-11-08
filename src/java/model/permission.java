@@ -9,7 +9,7 @@ package model;
  *
  * @author Tebellum
  */
-public class feature {
+public class permission {
 
        private int id;
        private String url;

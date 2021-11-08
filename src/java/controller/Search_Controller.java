@@ -5,10 +5,9 @@
  */
 package controller;
 
-import dao.bookDBConnect;
 import dao.category_author_DBConnect;
+import dao.libraryConnect;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,33 +20,32 @@ import model.category_book;
  *
  * @author Tebellum
  */
-public class homeController extends HttpServlet {
+public class Search_Controller extends HttpServlet {
 
        protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
-              bookDBConnect bdbc = new bookDBConnect();
-
-              int pageSize = 12;
-              String page_raw = request.getParameter("page");
-              if (page_raw == null || page_raw.length() == 0) {
-                     page_raw = "1";
-              }
-              int pageIndex = Integer.parseInt(page_raw);
-              int total_row = bdbc.getRowCount();
-              int totalpage = (total_row % pageSize == 0) ? total_row / pageSize : (total_row / pageSize) + 1;
-
-              ArrayList<book> books = bdbc.get_books_Pagging(pageIndex, pageSize);
+              response.setContentType("text/html;charset=UTF-8");
+              String search = request.getParameter("search");
+              libraryConnect l = new libraryConnect();
+              ArrayList<book> books = l.search_book(search);
+              request.setAttribute("books", books);
 
               category_author_DBConnect cdbc = new category_author_DBConnect();
               ArrayList<category_book> list_cate = cdbc.get_cateBook();
               request.setAttribute("cates", list_cate);
-              request.setAttribute("pageIndex", pageIndex);
-              request.setAttribute("totalpage", totalpage);
-              request.setAttribute("books", books);
+              request.setAttribute("search", search);
               request.getRequestDispatcher("../view/home.jsp").forward(request, response);
-
        }
 
+       // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+       /**
+        * Handles the HTTP <code>GET</code> method.
+        *
+        * @param request servlet request
+        * @param response servlet response
+        * @throws ServletException if a servlet-specific error occurs
+        * @throws IOException if an I/O error occurs
+        */
        @Override
        protected void doGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {

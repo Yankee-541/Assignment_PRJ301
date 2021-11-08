@@ -17,10 +17,23 @@ public class account {
        private String user_name, password, display_name, phone, email, img;
        private ArrayList<feedback> feedback;
        private favorite favorite;
-       private ArrayList<feature> feature = new ArrayList<>();
+       private ArrayList<permission> permistion = new ArrayList<>();
+       private ArrayList<group> group = new ArrayList<>();
 
-       public ArrayList<feature> getFeature() {
-              return feature;
+       public ArrayList<group> getGroup() {
+              return group;
+       }
+
+       public void setGroup(ArrayList<group> group) {
+              this.group = group;
+       }
+
+       public ArrayList<permission> getPermistion() {
+              return permistion;
+       }
+
+       public void setPermistion(ArrayList<permission> permistion) {
+              this.permistion = permistion;
        }
 
        public String getImg() {
@@ -29,10 +42,6 @@ public class account {
 
        public void setImg(String img) {
               this.img = img;
-       }
-
-       public void setFeature(ArrayList<feature> feature) {
-              this.feature = feature;
        }
 
        public ArrayList<feedback> getFeedback() {

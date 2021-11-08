@@ -46,7 +46,7 @@
                             <td>Book Name</td>
                             <td>
                                 <!--<input name="book_name" type="text" >-->
-                                <textarea id="description" name="book_name" rows="1" cols="50"></textarea></td>
+                                <textarea id="description" name="book_name" rows="1" cols="80"></textarea></td>
                         </tr>
                         <tr>
                             <td>Description</td>

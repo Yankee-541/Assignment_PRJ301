@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package controller.author;
 
+import controller.login.requiedAuthenController;
+import dao.bookDBConnect;
 import dao.category_author_DBConnect;
 import dao.libraryConnect;
 import java.io.IOException;
@@ -22,15 +24,27 @@ import model.category_book;
  * @author Tebellum
  */
 @WebServlet(name = "list_book", urlPatterns = {"/library/list"})
-public class list_book extends HttpServlet {
+public class list_book extends requiedAuthenController {
 
        protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
+              bookDBConnect bdbc = new bookDBConnect();
+              int pageSize = 12;
+              String page_raw = request.getParameter("page");
+              if (page_raw == null || page_raw.length() == 0) {
+                     page_raw = "1";
+              }
+              int pageIndex = Integer.parseInt(page_raw);
+              int total_row = bdbc.getRowCount();
+              int totalpage = (total_row % pageSize == 0) ? total_row / pageSize : (total_row / pageSize) + 1;
+              ArrayList<book> books = bdbc.get_books_Pagging(pageIndex, pageSize);
+
               response.setContentType("text/html;charset=UTF-8");
               libraryConnect l = new libraryConnect();
-              ArrayList<book> books = l.getBooks();
               category_author_DBConnect cdbc = new category_author_DBConnect();
               ArrayList<category_book> list_cate = cdbc.get_cateBook();
+              request.setAttribute("pageIndex", pageIndex);
+              request.setAttribute("totalpage", totalpage);
               request.setAttribute("cates", list_cate);
               request.setAttribute("books", books);
               request.getRequestDispatcher("../view_author/list_book.jsp").forward(request, response);
@@ -47,7 +61,7 @@ public class list_book extends HttpServlet {
         * @throws IOException if an I/O error occurs
         */
        @Override
-       protected void doGet(HttpServletRequest request, HttpServletResponse response)
+       protected void processGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
               processRequest(request, response);
        }
@@ -61,7 +75,7 @@ public class list_book extends HttpServlet {
         * @throws IOException if an I/O error occurs
         */
        @Override
-       protected void doPost(HttpServletRequest request, HttpServletResponse response)
+       protected void processPost(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
               processRequest(request, response);
        }

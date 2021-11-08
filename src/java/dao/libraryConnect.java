@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.account;
@@ -21,6 +23,50 @@ import model.category_book;
  * @author Tebellum
  */
 public class libraryConnect extends DBConnect {
+
+       public ArrayList<book> search_book(String name) {
+              ArrayList<book> books = new ArrayList<>();
+              String sql = "select * from Book where (1 = 1) ";
+              try {
+                     int paramindex = 0;
+                     HashMap<Integer, Object[]> params = new HashMap<>();
+                     if (name != null) {
+                            sql += " and [book_name] like '%' + ? + '%'";
+                            paramindex++;
+                            Object[] param = new Object[2];
+                            param[0] = String.class.getName();
+                            param[1] = name;
+                            params.put(paramindex, param);
+
+                     }
+
+                     PreparedStatement ps = connection.prepareStatement(sql);
+                     for (Map.Entry<Integer, Object[]> entry : params.entrySet()) {
+                            Integer index = entry.getKey();
+                            Object[] value = entry.getValue();
+
+                            String type = value[0].toString();
+                            if (type.equals(String.class.getName())) {
+                                   ps.setString(index, value[1].toString());
+                            }
+
+                     }
+
+                     ResultSet rs = ps.executeQuery();
+                     while (rs.next()) {
+                            book b = new book();
+                            b.setBook_id(rs.getInt(1));
+                            b.setBook_name(rs.getString(2));
+                            b.setUrl_img(rs.getString("imagin"));
+
+                            books.add(b);
+                     }
+              } catch (SQLException ex) {
+                     Logger.getLogger(libraryConnect.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+              return books;
+       }
 
        public ArrayList<book> searchBookByCate(int cid) {
               ArrayList<book> books = new ArrayList<>();

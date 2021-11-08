@@ -10,10 +10,20 @@ package model;
  * @author Tebellum
  */
 public class feedback {
+       
     private account account;
     private book book;
     private String comment;
+    private int commentID;
 
+       public int getCommentID() {
+              return commentID;
+       }
+
+       public void setCommentID(int commentID) {
+              this.commentID = commentID;
+       }
+    
     public account getAccount() {
         return account;
     }

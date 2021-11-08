@@ -5,6 +5,7 @@
  */
 package controller.author;
 
+import controller.login.requiedAuthenController;
 import dao.category_author_DBConnect;
 import dao.libraryConnect;
 import java.io.IOException;
@@ -23,10 +24,10 @@ import model.category_book;
  * @author Tebellum
  */
 @WebServlet(name = "insert_categoryBook", urlPatterns = {"/library/insert_category"})
-public class insert_categoryBook extends HttpServlet {
+public class insert_categoryBook extends requiedAuthenController {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         libraryConnect lib = new libraryConnect();
@@ -40,7 +41,7 @@ public class insert_categoryBook extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         category_author_DBConnect c = new category_author_DBConnect();

@@ -5,6 +5,7 @@
  */
 package controller.author;
 
+import controller.login.requiedAuthenController;
 import dao.libraryConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,50 +24,50 @@ import model.category_book;
  * @author Tebellum
  */
 @WebServlet(name = "update_book", urlPatterns = {"/library/updatebook"})
-public class update_book extends HttpServlet {
+public class update_book extends requiedAuthenController {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        String id = request.getParameter("id");
-        libraryConnect lib = new libraryConnect();
-        book b = lib.getbook(id);
-        ArrayList<author> auth = lib.getAuthor();
-        ArrayList<category_book> cates = lib.getCate();
-        request.setAttribute("auth", auth);
-        request.setAttribute("cates", cates);
-        request.setAttribute("book", b);
-        request.getRequestDispatcher("../view_author/update_book.jsp").forward(request, response);
-    }
+       @Override
+       protected void processGet(HttpServletRequest request, HttpServletResponse response)
+               throws ServletException, IOException {
+              request.setCharacterEncoding("UTF-8");
+              String id = request.getParameter("id");
+              libraryConnect lib = new libraryConnect();
+              book b = lib.getbook(id);
+              ArrayList<author> auth = lib.getAuthor();
+              ArrayList<category_book> cates = lib.getCate();
+              request.setAttribute("auth", auth);
+              request.setAttribute("cates", cates);
+              request.setAttribute("book", b);
+              request.getRequestDispatcher("../view_author/update_book.jsp").forward(request, response);
+       }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        libraryConnect l = new libraryConnect();
-        book b = new book();
-        b.setBook_id(Integer.parseInt(request.getParameter("book_id")));
-        b.setBook_name(request.getParameter("book_name"));
-        b.setDescription(request.getParameter("description"));
-        b.setShort_des(request.getParameter("short_des"));
-        b.setUrl_img(request.getParameter("url_img"));
-        
-        author a = new author();
-        a.setAuthor_id(Integer.parseInt(request.getParameter("author_id")));
-        b.setAuthor(a);
+       @Override
+       protected void processPost(HttpServletRequest request, HttpServletResponse response)
+               throws ServletException, IOException {
+              request.setCharacterEncoding("UTF-8");
+              libraryConnect l = new libraryConnect();
+              book b = new book();
+              b.setBook_id(Integer.parseInt(request.getParameter("book_id")));
+              b.setBook_name(request.getParameter("book_name"));
+              b.setDescription(request.getParameter("description"));
+              b.setShort_des(request.getParameter("short_des"));
+              b.setUrl_img(request.getParameter("url_img"));
 
-        category_book c = new category_book();
-        c.setCategory_id(Integer.parseInt(request.getParameter("category_id")));
-        b.setCategory(c);
+              author a = new author();
+              a.setAuthor_id(Integer.parseInt(request.getParameter("author_id")));
+              b.setAuthor(a);
 
-        l.updateBook(b);
-        response.sendRedirect("list");
-    }
+              category_book c = new category_book();
+              c.setCategory_id(Integer.parseInt(request.getParameter("category_id")));
+              b.setCategory(c);
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+              l.updateBook(b);
+              response.sendRedirect("list");
+       }
+
+       @Override
+       public String getServletInfo() {
+              return "Short description";
+       }// </editor-fold>
 
 }
